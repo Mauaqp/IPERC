@@ -5,13 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPERC</title>
+
 </head>
 <body>
     <main>
         <h1>IPERC</h1>
+        <h2>Prueba de llenado de IPERC</h2>
+        <div id="prueba">Hola</div>
         <section>
-            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Peligro</th>
+                        <th>Riesgo Asociado</th>
+                        <th>Probabilidad</th>
+                        <th>Consecuencia</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form>
+                            <td>
+                                <input type="text" name="peligro" id="peligro" placeholder="Ingresa Peligro">
+                            </td>
+                            <td>
+                                <input type="text" name="riesgo" id="riesgo" placeholder="Ingresa el Riesgo">
+                            </td>
+                            <td>
+                                <select id="probabilidad" name="probabilidad" onchange="getValP(value)">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="consecuencia" name="consecuencia" onchange="getValC(value)">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div id="resultado"></div>
+                                <button onclick="calculate();">Calcular</button>
+                            </td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+            <button>Agregar fila</button>
+            <button onclick="myFunction()">Test JS</button>
+            <button onclick="calculate()">Test</button>
         </section>
     </main>
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

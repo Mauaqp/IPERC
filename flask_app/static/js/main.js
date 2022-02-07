@@ -4,33 +4,42 @@ function myFunction() {
 }
 
 // Insertar row en tbody
-let valProbabilidad = "";
-let valConsecuencia = "";
+// let valProbabilidad = "";
+// let valConsecuencia = "";
 
 // Display de probabilidad x consecuencia
-// let resultado = document.getElementById("#resultado");
-// console.log(resultado);
 
-function show(){
-    p = document.querySelector("probabilidad")
-    console.log(p)
+function test(){
+    prueba = document.getElementById("probabilidad").value;
+    console.log("Aqui debería ir ", prueba)
 }
-// let probabilidad = document.getElementById("probabilidad");
-// let p_valor = probabilidad.value;
 
-// console.log(p_valor);
+let probabilidad = document.getElementById("probabilidad").value;
+console.log(probabilidad);
 
-// let consecuencia = document.getElementById("consecuencia"), 
-//     c_valor = consecuencia.value;
+let resultado = document.querySelector('#resultado');
 
-// probabilidad.onchange=()=>calculate();
-// consecuencia.onchange=()=>calculate();
 
-// function calculate () {
-//     a = parseInt(p_valor);
-//     b = parseInt(c_valor);
-//     let cal = 0;
-//     cal = a * b;
-//     resultado.innerText = `${cal}`;
-// }
-// calculate()
+
+// var p = document.getElementById("probabilidad");
+// console.log(p.value);
+
+
+function getValP (value) {
+    console.log("Probabilidad: ", value);
+    probabilidad = value;
+    return probabilidad;
+}
+function getValC (value) {
+    console.log("Consecuencia: ", value);
+    var consecuencia = value;
+    return consecuencia;
+}
+
+
+function calculate () {
+    probabilidad = document.getElementById("probabilidad").value;
+    consecuencia = document.getElementById("consecuencia").value;
+    res = probabilidad * consecuencia;
+    console.log("funciona", res)
+}
