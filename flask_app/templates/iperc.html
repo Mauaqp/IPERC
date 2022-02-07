@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPERC</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 
 </head>
 <body>
@@ -13,9 +15,10 @@
         <h2>Prueba de llenado de IPERC</h2>
         <div id="prueba">Hola</div>
         <section>
-            <table>
+            <table id="iperc">
                 <thead>
                     <tr>
+                        <th>Actions</th>
                         <th>Peligro</th>
                         <th>Riesgo Asociado</th>
                         <th>Probabilidad</th>
@@ -23,9 +26,12 @@
                         <th>Resultado</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="iperc-body">
                     <tr>
                         <form>
+                            <td>
+                                Remove
+                            </td>
                             <td>
                                 <input type="text" name="peligro" id="peligro" placeholder="Ingresa Peligro">
                             </td>
@@ -33,7 +39,7 @@
                                 <input type="text" name="riesgo" id="riesgo" placeholder="Ingresa el Riesgo">
                             </td>
                             <td>
-                                <select id="probabilidad" name="probabilidad" onchange="getValP(value)">
+                                <select id="probabilidad" name="probabilidad" onchange="calculate()">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -41,7 +47,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select id="consecuencia" name="consecuencia" onchange="getValC(value)">
+                                <select id="consecuencia" name="consecuencia" onchange="calculate()">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -50,13 +56,12 @@
                             </td>
                             <td>
                                 <div id="resultado"></div>
-                                <button onclick="calculate();">Calcular</button>
                             </td>
                         </form>
                     </tr>
                 </tbody>
             </table>
-            <button>Agregar fila</button>
+            <button onclick="addRow()">Agregar fila</button>
             <button onclick="myFunction()">Test JS</button>
             <button onclick="calculate()">Test</button>
         </section>
