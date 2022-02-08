@@ -15,6 +15,7 @@ $(function() {
         var form = $(this).parents('form')
         $(this).parents('tr').remove();
         autoCalcSetup();
+
     });
 
     $('button.row-add').on("click", function(e) {
@@ -34,23 +35,28 @@ $(function() {
 });
 
 
-function eval(){
-let ev = document.getElementById('resultado').closest('input').value;
-let res_ev = document.getElementById("evaluacion").closest('span');
-    if (ev >= 8) {
-        res_ev.innerHTML = "Riesgo Alto"
-        console.log("Riesgo Alto")
+// Llamar a la función jquery
+$(document).ready(function() {
+    $('.btn_hide').change(btn_hide);
+});
+    function eval(){
+        let ev = document.getElementById('resultado').closest('input').value;
+        console.log(ev)
+        let res_ev = document.getElementById("evaluacion").closest('span');
+            if (ev >= 8) {
+                res_ev.innerHTML = "Riesgo Alto"
+                console.log("Riesgo Alto")
+            }
+            else if (ev >= 4) {
+                res_ev.innerHTML = "Riesgo Medio"
+                console.log("Riesgo Medio")
+            }
+            else {
+                res_ev.innerHTML = "Riesgo Bajo"
+                console.log("Riesgo Bajo")
+            }
+        return (ev);
     }
-    else if (ev >= 4) {
-        res_ev.innerHTML = "Riesgo Medio"
-        console.log("Riesgo Medio")
-    }
-    else {
-        res_ev.innerHTML = "Riesgo Bajo"
-        console.log("Riesgo Bajo")
-    }
-}
-
 
 // Llamar a la función jquery
 $(document).ready(function() {
