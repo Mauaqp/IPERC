@@ -15,7 +15,6 @@ $(function() {
         var form = $(this).parents('form')
         $(this).parents('tr').remove();
         autoCalcSetup();
-
     });
 
     $('button.row-add').on("click", function(e) {
@@ -27,29 +26,39 @@ $(function() {
         var $new = $top.clone(true);
 
         $new.jAutoCalc('destroy');
-        $new.insertAfter($top);
+        $new.insertBefore($top);
         $new.find('input[type=text]').val('');
-        $new.find('span').val('');
+        // $new.find('span').val('');
         autoCalcSetup();
     });
 });
 
-    function eval(){
-        let ev = document.getElementById('resultado').closest('input').value;
-        console.log(ev)
-        let res_ev = document.getElementById("evaluacion").closest('span');
-            if (ev >= 8) {
-                res_ev.innerHTML = "Riesgo Alto"
-                console.log("Riesgo Alto")
-            }
-            else if (ev >= 4) {
-                res_ev.innerHTML = "Riesgo Medio"
-                console.log("Riesgo Medio")
-            }
-            else {
-                res_ev.innerHTML = "Riesgo Bajo"
-                console.log("Riesgo Bajo")
-            }
-        
-        return (ev);
+
+function eval(){
+let ev = document.getElementById('resultado').closest('input').value;
+let res_ev = document.getElementById("evaluacion").closest('span');
+    if (ev >= 8) {
+        res_ev.innerHTML = "Riesgo Alto"
+        console.log("Riesgo Alto")
     }
+    else if (ev >= 4) {
+        res_ev.innerHTML = "Riesgo Medio"
+        console.log("Riesgo Medio")
+    }
+    else {
+        res_ev.innerHTML = "Riesgo Bajo"
+        console.log("Riesgo Bajo")
+    }
+}
+
+
+// Llamar a la función jquery
+$(document).ready(function() {
+    $('.btn_hide').click(btn_hide);
+});
+
+// Función llamada
+function btn_hide() {
+    console.log("botón")
+    alert ($(this).closest('td').prev('.contact_name').text());
+}
