@@ -1,4 +1,4 @@
-// Función autocálculo
+// Función autocálculo jquery
 $(function() {
 
     function autoCalcSetup() {
@@ -35,15 +35,16 @@ $(function() {
 });
 
 
-// Llamar a la función jquery
+// Llamar a la función jquery de forma pasiva
 $(document).ready(function() {
     $('#resultado').change(eval);
 });
 
-
+// función de evaluación y llenado en span
 function eval(){
     console.log("TESTEO JQ")
     let ev = $(this).val();
+    // Así lo programé sin jquery
     // document.getElementById('resultado').closest('input').value;
     console.log("ev", ev)
     let res_ev = $(this).closest('td').next('td').find('#evaluacion');
@@ -62,15 +63,4 @@ function eval(){
             console.log("Riesgo Alto")
         }
     return (ev);
-}
-
-// Llamar a la función jquery
-$(document).ready(function() {
-    $('.btn_hide').click(btn_hide);
-});
-
-// Función llamada
-function btn_hide() {
-    console.log("botón")
-    alert ($(this).closest('td').prev('.contact_name').text());
 }
