@@ -15,20 +15,35 @@ z.innerHTML="New Cell2";
 
 
 var arrHead = new Array();
-arrHead = ['', 'Peligro', 'Riesgo Asociado', 'Probabilidad', 'Consecuencia', 'Resultado']; // table headers.
+arrHead = ['Acciones', 'Peligro', 'Riesgo Asociado', 'Probabilidad', 'Consecuencia', 'Resultado']; // table headers.
+
+// function to add new row.
+
+// function to delete a row.
+function removeRow(oButton) {
+    var empTab = document.getElementById('iperc');
+    empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
+}
+
+
+// INICIO DE TEST
+
+
+var arrHead = new Array();
+arrHead = ['Acciones', 'Peligro', 'Riesgo Asociado', 'Probabilidad', 'Consecuencia', 'Resultado']; // table headers.
 
 // function to add new row.
 function addRow() {
-    let empTab = document.getElementById('iperc');
+    let empTab = document.getElementById('iperc-body');
 
     let rowCnt = empTab.rows.length;    // get the number of rows.
     let tr = empTab.insertRow(rowCnt); // table row.
     tr = empTab.insertRow(rowCnt);
-
     for (let c = 0; c < arrHead.length; c++) {
+        let counter = 0;
         let td = document.createElement('td');          // TABLE DEFINITION.
         td = tr.insertCell(c);
-
+        
         if (c == 0) {   // if its the first column of the table.
             // add a button control.
             var button = document.createElement('input');
@@ -72,6 +87,7 @@ function addRow() {
             res.innerHTML = '<div id="resultado"></div>';
             td.appendChild(res);
         }
+        counter +=1;
     }
 }
 // function to delete a row.
@@ -84,8 +100,8 @@ function removeRow(oButton) {
 
 // Display de probabilidad x consecuencia
 function calculate () {
-    probabilidad = document.getElementById("probabilidad").value;
-    consecuencia = document.getElementById("consecuencia").value;
+    let probabilidad = document.getElementById("probabilidad").value;
+    let consecuencia = document.getElementById("consecuencia").value;
     res = probabilidad * consecuencia;
     console.log("resultado", res)
     document.getElementById("resultado").innerHTML = res

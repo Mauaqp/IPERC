@@ -12,12 +12,12 @@
 <body>
     <main>
         <h1>IPERC</h1>
-        <h2>Prueba de llenado de IPERC</h2>
-        <div id="prueba">Hola</div>
+        <h2>Prueba de llenado de IPERC RAMA TEST</h2>
+        <div>RAMA TEST</div>
         <section>
             <table id="iperc">
                 <thead>
-                    <tr>
+                    <tr id="iperc-head">
                         <th>Actions</th>
                         <th>Peligro</th>
                         <th>Riesgo Asociado</th>
@@ -27,9 +27,9 @@
                     </tr>
                 </thead>
                 <tbody id="iperc-body">
-                    <tr>
-                        <form>
-                            <td>
+                    <form id="iperc-body-form">
+                        <tr>
+                            <!-- <td>
                                 Remove
                             </td>
                             <td>
@@ -57,8 +57,8 @@
                             <td>
                                 <div id="resultado"></div>
                             </td>
-                        </form>
-                    </tr>
+                        </tr> -->
+                    </form>
                 </tbody>
             </table>
             <button onclick="addRow()">Agregar fila</button>
