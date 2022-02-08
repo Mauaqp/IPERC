@@ -37,25 +37,29 @@ $(function() {
 
 // Llamar a la función jquery
 $(document).ready(function() {
-    $('#resultado').change(btn_hide);
+    $('#resultado').change(eval);
 });
 
 
 function eval(){
-    let ev = document.getElementById('resultado').closest('input').value;
-    console.log(ev)
-    let res_ev = document.getElementById("evaluacion").closest('span');
+    console.log("TESTEO JQ")
+    let ev = $(this).val();
+    // document.getElementById('resultado').closest('input').value;
+    console.log("ev", ev)
+    let res_ev = $(this).closest('td').next('td').find('#evaluacion');
+    console.log("res_ev ", res_ev)
+    // document.getElementById("evaluacion").closest('span');
         if (ev >= 8) {
-            res_ev.innerHTML = "Riesgo Alto"
+            res_ev.html("Riesgo Alto")
             console.log("Riesgo Alto")
         }
         else if (ev >= 4) {
-            res_ev.innerHTML = "Riesgo Medio"
-            console.log("Riesgo Medio")
+            res_ev.html("Riesgo Medio")
+            console.log()
         }
         else {
-            res_ev.innerHTML = "Riesgo Bajo"
-            console.log("Riesgo Bajo")
+            res_ev.html("Riesgo Bajo")
+            console.log("Riesgo Alto")
         }
     return (ev);
 }
