@@ -4,13 +4,15 @@ from flask import flash
 class Iperc:
     def __init__(self, data):
         self.id = data["id"]
-        self.title = data["title"]
-        self.network = data["network"]
-        self.riesgo = self.Riesgo
-        self.release_date = data["release_date"]
+        self.peligro = data["peligro"]
+        self.riesgo = data["riesgo"]
+        self.probabilidad = data["probabilidad"]
+        self.consecuencia = data["consecuencia"]
+        self.resultado = data["resultado"]
+        self.evaluacion = data["evaluacion"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
-        self.user_id = data["user_id"]
+        # self.user_id = data["user_id"]
     
     class Riesgo:
         pass
@@ -18,16 +20,16 @@ class Iperc:
     #Add Show method
     @classmethod
     def add(cls, data):
-        query = "INSERT INTO shows (title, network, description, release_date, created_at, updated_at , user_id) VALUES(%(title)s, %(network)s, %(description)s, %(release_date)s, NOW(), NOW(), %(user_id)s);"
-        return connectToMySQL("users_tv").query_db(query,data)
+        query = "INSERT INTO matrix (peligro, riesgo, probabilidad,consecuencia, resultado, evaluacion, created_at, updated_at) VALUES(%(peligro)s, %(riesgo)s, %(probabilidad)s, %(consecuencia)s, %(resultado)s, %(evaluacion)s, NOW(), NOW());" # %(user_id)s
+        return connectToMySQL("iperc_project").query_db(query,data)
     
 
-    #Get All shows method
+    #Get All matrixes method
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM shows;"
-        resultado = connectToMySQL("users_tv").query_db(query)
-        all_shows=[]
-        for show in resultado:
-            all_shows.append(cls(show))
-        return all_shows
+        query = "SELECT * FROM matrix;"
+        resultado = connectToMySQL("iperc_project").query_db(query)
+        matrix=[]
+        for m in resultado:
+            matrix.append(cls(m))
+        return matrix
